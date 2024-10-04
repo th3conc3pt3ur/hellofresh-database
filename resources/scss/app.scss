@@ -16,9 +16,9 @@
     @apply inline-flex items-center justify-center select-none;
     @apply font-medium rounded leading-normal transition duration-150 ease-in-out;
     @apply px-2.5 py-0.5;
-    @apply bg-gradient-to-t shadow-lg;
+    @apply bg-neutral-600 shadow-lg;
     @apply text-white from-accent-700 to-accent-500;
-    @apply focus:ring focus:ring-accent-300;
+    @apply focus:ring focus:ring-neutral-300;
     @apply active:brightness-110;
 
     &:enabled, a {
@@ -26,7 +26,7 @@
     }
   }
   .btn-disabled {
-    @apply text-primary-300/80 from-primary-800 to-primary-700;
+    @apply text-neutral-400 bg-neutral-700;
   }
   .btn-danger {
     @apply from-red-800 to-red-700;
@@ -43,7 +43,7 @@
     }
   }
   .card {
-    @apply flex flex-col bg-primary-400 rounded shadow border border-primary-600;
+    @apply flex flex-col bg-neutral-800 rounded shadow border border-neutral-700 text-neutral-300;
   }
   .dotted-list {
     li {
@@ -64,7 +64,7 @@
   }
   /* For Semantic Elements */
   .nav-element {
-    @apply w-full z-30 transition duration-300 ease-in-out bg-primary-500 border-primary-600/50;
+    @apply w-full z-30 transition duration-300 ease-in-out bg-neutral-800 text-neutral-300 border-neutral-700;
   }
   .clickable-label {
     @apply inline-flex items-center gap-1.5 cursor-pointer select-none;
@@ -89,7 +89,7 @@
  * Theme
  */
 body {
-  @apply bg-primary-300/70 text-primary-900 tracking-tight;
+  @apply bg-black text-primary-900 tracking-tight;
 }
 #app {
   @apply flex flex-col min-h-screen overflow-hidden;
@@ -104,14 +104,14 @@ main {
 }
 
 .scrollbar, .scrollbar-thin {
-  @apply scrollbar-thumb-accent-500 scrollbar-track-accent-900 scrollbar-track-rounded-full;
+  @apply scrollbar-thumb-neutral-500 scrollbar-track-neutral-900 scrollbar-track-rounded-full;
 }
 
 nav, .nav {
   a {
     //@apply text-neutral-900;
-    @apply text-primary-800;
-    @apply hover:text-primary-900;
+    @apply text-neutral-300;
+    @apply hover:text-neutral-500;
 
     //&.active {
     //  @apply text-neutral-800;

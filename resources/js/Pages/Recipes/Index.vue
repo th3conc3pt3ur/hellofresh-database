@@ -59,11 +59,11 @@ defineProps({
   <FullPage>
     <MenuSelector v-if="menus" :menus="menus" />
     <NotFound v-if="!recipes.data.length" />
-    <div v-else class="flex flex-wrap justify-around items-stretch gap-8">
+    <div v-else class="grid grid-cols-5 gap-6">
       <div
         v-for="recipe in recipes.data"
         :key="recipe.id"
-        class="card w-full sm:w-96 2xl:w-[29.3rem]"
+        class="card w-full"
       >
         <!--        <Link v-if="recipe.image" :href="country.route + '/' + recipe.id + '-' + recipe.slug">-->
         <!--          <div-->
@@ -89,40 +89,40 @@ defineProps({
           <h2 class="px-2 font-medium text-lg">
             {{ recipe.name }}
           </h2>
-          <div class="px-2 grow text-primary-800 leading-tight pb-1 flex flex-col">
+          <div class="px-2 grow text-neutral-400 leading-tight pb-1 flex flex-col">
             {{ recipe.headline }}
             <ul
               v-if="recipe.tags && recipe.tags.length"
-              class="text-sm inline-flex flex-wrap text-primary-800/90 dotted-list pt-4"
+              class="text-sm inline-flex flex-wrap text-neutral-400 dotted-list pt-4"
             >
               <li v-for="tag in recipe.tags" :key="tag">{{ tag }}</li>
             </ul>
           </div>
-          <div class="px-2 flex flex-wrap gap-2 justify-center">
+          <div class="px-2 grid grid-cols-2 gap-2 justify-center">
             <a
-              class="btn whitespace-nowrap btn-sm"
+              class="btn whitespace-nowrap btn-sm gap-1"
               target="_blank"
               :href="country.domain + '/recipes/' + recipe.slug + '-' + recipe.id"
             >
               <font-awesome-icon :icon="['fas', 'lemon']" fixed-width />
-              {{ __('View on HelloFresh') }}
+              {{ __('HelloFresh') }}
             </a>
             <Component
               :is="recipe.pdf ? 'a' : 'span'"
               :aria-disabled="!recipe.pdf"
               :class="{ 'btn-disabled': !recipe.pdf }"
               :href="recipe.pdf"
-              class="btn whitespace-nowrap btn-sm"
+              class="btn whitespace-nowrap btn-sm gap-1"
               target="_blank"
             >
               <font-awesome-icon :icon="['fas', 'file-lines']" fixed-width />
               {{ __('View PDF') }}
             </Component>
           </div>
-          <div class="text-center">
+          <div class="text-center px-2">
             <button
               type="button"
-              class="btn gap-2"
+              class="btn w-full"
               :class="{
                 'btn-danger': shoppingList.indexOf(recipe.id) > -1,
                 'btn-disabled':

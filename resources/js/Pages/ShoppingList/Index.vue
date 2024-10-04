@@ -199,14 +199,14 @@ onMounted(() => {
       class="flex flex-col gap-2"
     >
       <section class="card mb-4">
-        <h2 class="font-medium p-4 border-b border-primary-600/90 rounded-sm print:px-2 print:py-1">
+        <h2 class="font-medium p-4 border-b border-neutral-700 rounded-sm print:px-2 print:py-1">
           {{ __('Recipes') }}
         </h2>
         <div class="p-2 flex flex-col gap-2">
           <div
             v-for="(recipe, recipeId) in recipes"
             :key="recipeId"
-            class="border border-primary-600/90 p-1 flex flex-wrap gap-1 max-sm:flex-col"
+            class="border border-neutral-700 p-1 flex flex-wrap gap-1 max-sm:flex-col"
           >
             <div class="text-center mx-auto p-1">
               <img :src="recipe.image" :alt="recipe.name" class="h-16" />
@@ -237,7 +237,7 @@ onMounted(() => {
         </div>
       </section>
       <section class="card">
-        <div class="flex justify-between gap-2 border-b border-primary-600/90 rounded-sm p-4 print:px-2 print:py-1 items-center">
+        <div class="flex justify-between gap-2 border-b border-neutral-700 rounded-sm p-4 print:px-2 print:py-1 items-center">
           <h2 class="font-medium">
             {{ __('Ingredients') }}
           </h2>
@@ -260,11 +260,11 @@ onMounted(() => {
           <table
             v-for="(ingredient, ingredientName) in ingredients"
             :key="ingredientName"
-            class="table-auto border-collapse border border-primary-600/90 rounded-sm bg-primary-500"
+            class="table-auto w-full border-collapse border border-neutral-700 rounded-sm bg-neutral-800"
           >
             <thead>
               <tr>
-                <th colspan="2" class="text-left px-2 py-0.5 inline-flex items-center gap-2">
+                <th colspan="2" class="text-left px-2 py-0.5 inline-flex items-center gap-2 bg-gradient-to-r from-neutral-600 ">
                   <img :src="ingredient.image" :alt="ingredient.name" class="h-10 print:h-6" />
                   {{ ingredientName }}
                 </th>
@@ -275,10 +275,10 @@ onMounted(() => {
                 v-for="(item, recipeId) in ingredient.recipe_yields"
                 :key="ingredientName + recipeId"
               >
-                <td class="px-2 border border-primary-600/90 border-r-0 bg-primary-400">
+                <td class="px-2 border border-neutral-700 border-r-0 bg-neutral-900">
                   {{ recipes[recipeId].name }} ({{ form[recipeId] }})
                 </td>
-                <td class="px-2 text-right border border-primary-600/90 border-l-0 bg-primary-400">
+                <td class="px-2 text-right border-l-0 border border-neutral-600 bg-neutral-700">
                   {{ amountUnitFormat(item[form[recipeId]].amount, item[form[recipeId]].unit) }}
                 </td>
               </tr>
